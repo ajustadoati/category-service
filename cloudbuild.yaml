@@ -25,8 +25,7 @@ steps:
     args:
       - -c
       - |
-        docker image build --tag ${_REGION}-docker.pkg.dev/$PROJECT_ID/ajustadoati-repo/category:$COMMIT_SHA
-      - .
+        docker image build --tag ${_REGION}-docker.pkg.dev/$PROJECT_ID/ajustadoati-repo/category:$COMMIT_SHA .
 
   - id: kubeval
     dir: .
