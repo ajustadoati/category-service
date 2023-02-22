@@ -1,0 +1,7 @@
+environment: development
+container:
+  name: category
+  port: 8080
+  image: ajustadoati/category
+  tag: 1.0
+replicas: 1

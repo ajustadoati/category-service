@@ -1,0 +1,8 @@
+name: category
+sources:
+- https://github.com/ajustadoati/category
+version: 1.0.1
+dependencies:
+  - name: mongodb
+    version: ~6.0.4
+    repository: https://charts.bitnami.com/bitnami
