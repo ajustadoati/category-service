@@ -1,6 +1,6 @@
 steps:
   - id: get-kube-config
-    dir: hello-cloudbuild-v2
+    dir: .
     name: gcr.io/cloud-builders/kubectl
     env:
       - CLOUDSDK_CORE_PROJECT=$PROJECT_ID
@@ -11,7 +11,7 @@ steps:
       - cluster-info
 
   - id: deploy
-    dir: hello-cloudbuild-v2
+    dir: .
     name: cloudnatived/helm-cloudbuilder
     env:
       - KUBECONFIG=/workspace/.kube/config
@@ -20,12 +20,12 @@ steps:
       - upgrade
       - --install
       - --create-namespace
-      - ${TAG_NAME}-demo
-      - --namespace=${TAG_NAME}-demo
+      - ${TAG_NAME}-category
+      - --namespace=${TAG_NAME}-category
       - --values
-      - k8s/demo/${TAG_NAME}-values.yaml
+      - category/${TAG_NAME}-values.yaml
       - --set
-      - container.image=${_REGION}-docker.pkg.dev/$PROJECT_ID/demo/demo
+      - container.image=${_REGION}-docker.pkg.dev/$PROJECT_ID/ajustadoati-repo/category
       - --set
       - container.tag=${COMMIT_SHA}
-      - ./k8s/demo
+      - ./category
